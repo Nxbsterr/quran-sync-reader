@@ -1,0 +1,4 @@
+project_id = "jpcjprecutpmyfbqnhgj"
+
+[functions.fetch-quran-pdf]
+verify_jwt = false

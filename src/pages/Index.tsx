@@ -23,8 +23,11 @@ const Index = () => {
   // Fetch PDF URL (Offline-Friendly Version)
   useEffect(() => {
     // Instead of a plain string, we convert the local path to a Capacitor-friendly URL
-    const localUrl = Capacitor.convertFileSrc("Quraan.pdf");
-    setPdfUrl(localUrl); 
+    const isNative = Capacitor.isNativePlatform();
+    const localUrl = isNative
+      ? Capacitor.convertFileSrc("Quraan.pdf")
+      : "/Quraan.pdf";
+    setPdfUrl(localUrl);
     setLoadingPdf(false);
   }, []);
 
